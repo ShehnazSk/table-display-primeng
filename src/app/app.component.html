@@ -1,13 +1,17 @@
 <p-tabView>
+    <!-- tabPanel is to display Tabs -->
     <p-tabPanel [header]="header" *ngFor="let header of getHeaders(); let i = index" [selected]="i == 0">
+        <!-- sending complete {rowValues} object to the table -->
         <p-table [value]="rowValues">
             <ng-template pTemplate="header">
                 <tr>
+                    <!-- to display the headers  -->
                     <th *ngFor="let head of getTableHeaders(header)">{{head}}</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-val>
                 <tr>
+                    <!-- to display the data  -->
                     <td *ngFor="let item of getTableHeaders(header)">
                         {{val[item]}}
                     </td>
